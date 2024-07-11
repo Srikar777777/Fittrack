@@ -10,18 +10,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve up static assets
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
-}
+// if (NODE_ENV="production node server/server.js") {
+//   app.use(express.static(path.join(__dirname, "../client/build")));
+// }
 
 // app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+//   res.sendFile(path.join(__dirname, '../client/src/App'));
 // });
+ 
+app.get("",(req,res)=> {
+  console.log("server is running")
+})
 
 app.use(routes);
 
 db.once("open", () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
+  app.listen(3001, () => {
+    console.log(`API server running on port 3001!`);
   });
 });
