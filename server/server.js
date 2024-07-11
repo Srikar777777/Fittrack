@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve up static assets
+<<<<<<< HEAD
 // if (NODE_ENV="production node server/server.js") {
 //   app.use(express.static(path.join(__dirname, "../client/build")));
 // }
@@ -22,6 +23,12 @@ app.get("",(req,res)=> {
   console.log("server is running")
 })
 
+=======
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/src/App")));
+}
+
+>>>>>>> f5a8b97b2f902a6a263974400879858a1c84d83c
 app.use(routes);
 
 db.once("open", () => {
